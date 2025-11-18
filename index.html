@@ -1,43 +1,148 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steven Fitzgerald</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Steven Fitz — Portfolio</title>
+    <meta name="description" content="Steven Fitz — software engineer. Projects, blog, and contact." />
+    <meta name="author" content="Steven Fitz" />
+    <meta property="og:title" content="Steven Fitz — Portfolio" />
+    <meta property="og:description" content="Software engineer. Projects, blog, and contact." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.ico" />
+    <style>
+        :root{
+            --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#7dd3fc; --text:#e6eef6;
+            --max-width:1000px;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;
+            font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background:linear-gradient(180deg,#071021 0%, var(--bg) 60%);
+            color:var(--text);
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            line-height:1.5;
+            display:flex;
+            justify-content:center;
+        }
+        .wrap{width:100%;max-width:var(--max-width);padding:36px}
+        header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px}
+        .brand{display:flex;align-items:center;gap:12px}
+        .logo{
+            width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#60a5fa);
+            display:inline-grid;place-items:center;font-weight:700;color:#022;box-shadow:0 4px 18px rgba(0,0,0,.5)
+        }
+        nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+        nav a:hover{color:var(--accent)}
+        main{display:grid;grid-template-columns:1fr;gap:24px}
+        .hero{
+            background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+            border:1px solid rgba(125,211,252,.06);
+            padding:28px;border-radius:12px;display:flex;align-items:center;gap:20px;
+        }
+        .avatar{width:96px;height:96px;border-radius:12px;background:linear-gradient(135deg,#0ea5e9,#60a5fa);flex:0 0 96px}
+        h1{margin:0;font-size:1.6rem}
+        p.lead{margin:6px 0 0;color:var(--muted)}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+        .card{background:var(--card);border-radius:10px;padding:18px;border:1px solid rgba(255,255,255,.03)}
+        .card h3{margin:0 0 8px;font-size:1.05rem}
+        .muted{color:var(--muted);font-size:.95rem}
+        footer{margin-top:18px;padding-top:12px;border-top:1px dashed rgba(255,255,255,.03);color:var(--muted);font-size:.9rem;display:flex;justify-content:space-between}
+        a.button{
+            display:inline-block;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#60a5fa);color:#042433;font-weight:700;text-decoration:none
+        }
+        @media (max-width:640px){
+            header{flex-direction:column;align-items:flex-start;gap:12px}
+            .hero{flex-direction:row;gap:16px}
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Steven Fitzgerald</h1>
-        <p>Computer Science Graduate</p>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <div class="wrap" role="main">
+        <header>
+            <div class="brand">
+                <div class="logo" aria-hidden="true">SF</div>
+                <div>
+                    <div style="font-weight:800">Steven Fitz</div>
+                    <div style="color:var(--muted);font-size:.95rem">Software engineer — web & systems</div>
+                </div>
+            </div>
+            <nav aria-label="Primary navigation">
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>[ ]</p>
-    </section>
+        <main>
+            <section class="hero" aria-labelledby="intro-heading">
+                <div style="flex:1">
+                    <h1 id="intro-heading">Hi — I'm Steven. I build reliable web apps and APIs.</h1>
+                    <p class="lead">I focus on performance, accessibility, and maintainable code. Currently available for contract work.</p>
+                    <p style="margin-top:12px">
+                        <a class="button" href="#contact">Work with me</a>
+                        <a style="margin-left:10px;color:var(--muted);text-decoration:underline" href="/resume.pdf" target="_blank" rel="noopener">Resume</a>
+                    </p>
+                </div>
+                <div class="avatar" aria-hidden="true"></div>
+            </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li>Project 1 - Description</li>
-            <li>Project 2 - Description</li>
-        </ul>
-    </section>
+            <section id="projects" class="grid" aria-labelledby="projects-heading">
+                <h2 id="projects-heading" style="grid-column:1/-1;margin:0 0 6px">Selected Projects</h2>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: stevenfitzg@gmail.com</p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/stevenafitzgerald">Steven Fitzgerald</a></p>
-    </section>
+                <article class="card">
+                    <h3>Project One</h3>
+                    <p class="muted">A short one-line description of a project highlighting tech or value.</p>
+                    <p style="margin-top:10px"><a href="#" style="color:var(--accent);text-decoration:none">View details →</a></p>
+                </article>
 
-    <footer>
-        <p>2025 Steven Fitzgerald</p>
-    </footer>
+                <article class="card">
+                    <h3>Project Two</h3>
+                    <p class="muted">Another project — maybe an open-source library or app.</p>
+                    <p style="margin-top:10px"><a href="#" style="color:var(--accent);text-decoration:none">View details →</a></p>
+                </article>
+
+                <article class="card">
+                    <h3>Project Three</h3>
+                    <p class="muted">Tools, demos, or case studies.</p>
+                    <p style="margin-top:10px"><a href="#" style="color:var(--accent);text-decoration:none">View details →</a></p>
+                </article>
+            </section>
+
+            <section id="about" class="card" aria-labelledby="about-heading">
+                <h2 id="about-heading">About</h2>
+                <p class="muted">I am a software engineer with experience in frontend and backend technologies — JavaScript, Node.js, Python, and cloud platforms. I enjoy building fast, accessible interfaces and resilient services.</p>
+            </section>
+
+            <section id="contact" class="card" aria-labelledby="contact-heading">
+                <h2 id="contact-heading">Contact</h2>
+                <p class="muted">Email: <a href="mailto:hello@example.com" style="color:var(--accent);text-decoration:none">hello@example.com</a></p>
+                <p class="muted">Or find me on
+                    <a href="#" style="color:var(--accent);text-decoration:none">GitHub</a>,
+                    <a href="#" style="color:var(--accent);text-decoration:none">LinkedIn</a>.
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <div>© <time datetime="2025">2025</time> Steven Fitz</div>
+            <div class="muted">Built with simple HTML & CSS</div>
+        </footer>
+    </div>
+
+    <script>
+        // small helper: smooth in-page links
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{
+            a.addEventListener('click', e=>{
+                const id=a.getAttribute('href').slice(1);
+                if(!id) return;
+                const el=document.getElementById(id);
+                if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
+            });
+        });
+    </script>
 </body>
 </html>
