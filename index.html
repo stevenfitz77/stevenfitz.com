@@ -84,17 +84,17 @@
         // Load saved theme
         if (localStorage.getItem("theme") === "dark") {
             body.classList.add("dark");
-            toggleBtn.innerHTML = "Light <i class=\"fa-solid fa-sun\"></i>";
+            toggleBtn.innerHTML = "<i class=\"fa-solid fa-sun\"></i>";
         }
 
         toggleBtn.addEventListener("click", () => {
             body.classList.toggle("dark");
 
             if (body.classList.contains("dark")) {
-                toggleBtn.innerHTML = "Light <i class=\"fa-solid fa-sun\"></i>";
+                toggleBtn.innerHTML = "<i class=\"fa-solid fa-sun\"></i>";
                 localStorage.setItem("theme", "dark");
             } else {
-                toggleBtn.innerHTML = "Dark <i class=\"fa-solid fa-moon\"></i>";
+                toggleBtn.innerHTML = "<i class=\"fa-solid fa-moon\"></i>";
                 localStorage.setItem("theme", "light");
             }
         });
@@ -102,5 +102,6 @@
 
 
 </body>
+
 
 </html>
